@@ -1,0 +1,116 @@
+<!-- <p>sellform works!</p> -->
+<div class="sellpage">
+    <div class="header">
+        <img  class="animate__animated animate__flash" src="../../assets/undraw_web_shopping_dd4l.svg" width="200px" height="200px">
+        <h4 class="matter animate__animated animate__flash">Sell with peace</h4>
+    </div>
+    <div class="form example-form">
+        <form [formGroup]="sellproductform" (ngSubmit)="Onsubmit()">
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">Companyname</mat-label>
+                <input matInput class="textbox" formControlName="companyname"
+                    [class.is-invalid]="sellproductform.get('companyname').touched && sellproductform.get('companyname').invalid">
+            </mat-form-field>
+            <!-- <br> -->
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">Productname</mat-label>
+                <input matInput class="textbox" formControlName="productname"
+                    [class.is-invalid]="sellproductform.get('productname').touched && sellproductform.get('productname').invalid">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">Category</mat-label>
+                    <mat-select   formControlName="category" multiple>
+                        <mat-option  *ngFor="let category of categories;">
+                            {{category}}
+                        </mat-option>
+                      </mat-select>
+            </mat-form-field>
+            <!-- <br> -->
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">Type</mat-label>
+                <input matInput class="textbox" formControlName="type"
+                    [class.is-invalid]="sellproductform.get('type').touched && sellproductform.get('type').invalid">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">Brand</mat-label>
+                <input matInput class="textbox" formControlName="brand"
+                    [class.is-invalid]="sellproductform.get('brand').touched && sellproductform.get('brand').invalid">
+            </mat-form-field>
+            <!-- <br> -->
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">No of products</mat-label>
+                <input type="number" matInput class="textbox" formControlName="noofproducts"
+                    [class.is-invalid]="sellproductform.get('noofproducts').touched && sellproductform.get('noofproducts').invalid">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">Availablecolor</mat-label>
+                <input matInput class="textbox" formControlName="color"
+                    [class.is-invalid]="sellproductform.get('color').touched && sellproductform.get('color').invalid">
+            </mat-form-field>
+            <!-- <br> -->
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">Realprize</mat-label>
+                <input matInput class="textbox" formControlName="realprize"
+                    [class.is-invalid]="sellproductform.get('realprize').touched && sellproductform.get('realprize').invalid">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">Discount on realprize</mat-label>
+                <input matInput class="textbox" formControlName="discount"
+                    [class.is-invalid]="sellproductform.get('discount').touched && sellproductform.get('discount').invalid">
+            </mat-form-field>
+            <!-- <br> -->
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">Age</mat-label>
+                <input matInput class="textbox" formControlName="age"
+                    [class.is-invalid]="sellproductform.get('age').touched && sellproductform.get('age').invalid">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">size</mat-label>
+                <input matInput class="textbox" formControlName="size"
+                    [class.is-invalid]="sellproductform.get('size').touched && sellproductform.get('size').invalid">
+            </mat-form-field>
+            <!-- <br> -->
+           
+          <!--  {{!-<mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">Videolink</mat-label>
+                
+                <input matInput class="textbox" formControlName="videolink"
+                    [class.is-invalid]="sellproductform.get('videolink').touched && sellproductform.get('videolink').invalid">
+            </mat-form-field> }}-->
+      
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label class="label">Famous at which place</mat-label>
+                
+                <input matInput class="textbox" formControlName="place"
+                    [class.is-invalid]="sellproductform.get('place').touched && sellproductform.get('place').invalid">
+            </mat-form-field>
+            <br>
+            <div class="image-section" style="display:flex;">
+           
+            </div>
+            <mat-spinner *ngIf="!imageloader && spinnerstart"></mat-spinner>
+            <div style="display:flex;margin-left:23.5%">
+            <img *ngIf="imageloader" src="{{url}}" width="100px" height="100px" >
+
+            <label>Upload
+            <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+            
+            </label>
+            </div>
+
+            <br>
+            <br>
+            <div class="signbuttons">
+            <button mat-button class="mainbtn" type="submit" [disabled]="!sellproductform.valid">Submit</button>
+            </div>
+            <br>
+            <br>
+
+        </form>
+    </div>
+</div>

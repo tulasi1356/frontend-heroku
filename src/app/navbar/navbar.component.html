@@ -1,0 +1,37 @@
+<!-- <p>navbar works!</p> -->
+<mat-toolbar class="horizantal left primaryLightBg  navbar">
+   <div class="nav-bar">
+<div class="main-names">
+    <div routerLink='/home' class="web-name">Niva</div>
+    <span>Men</span>
+    <span>Women</span>
+    <span>Kids</span>
+    <span routerLink="/gift">Gifts</span>
+</div>
+ 
+    <input  type="text" placeholder="search..">
+    <!-- <span class="example-spacer"></span> -->
+<div class="group-icons">
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+     <mat-icon>shopping_bag</mat-icon>
+   </button>
+   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+     <mat-icon  matTooltip="auth.username"  [matMenuTriggerFor]="appMenu">person</mat-icon>
+
+     <mat-menu class="menu-overflow-hidden" #appMenu="matMenu">
+      <button *ngIf="auth.username == null ||auth.username.length==0 ; else userinfo" mat-raised-button routerLink="/signup">Login/signup</button>
+      <ng-template #userinfo>
+        <!-- <p>{{auth.username}}</p> -->
+        <!-- {{auth.username}} -->
+        <button mat-raised-button routerLink="/signup" (click)="logout()">Logout</button>
+      </ng-template>
+
+
+     </mat-menu>
+   </button>
+</div>
+   </div>
+ </mat-toolbar>

@@ -1,0 +1,51 @@
+<body>
+
+
+
+<div class="main">
+ <div class="image-section">
+   <img src="../../assets/sittingopen-removebg.png" width="500px" height="500px">
+</div>
+<div class="form example-form">
+
+    <form [formGroup]="signupForm" (ngSubmit)="Onsubmit()">
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label class="label">Name</mat-label>
+            <input matInput class="textbox" formControlName="username"
+                [class.is-invalid]="signupForm.get('username').touched && signupForm.get('username').invalid">
+           
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label class="label">Email</mat-label>
+            <input matInput class="textbox" formControlName="email">
+            
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label class="label">Password</mat-label>
+            <input matInput class="textbox"  formControlName="password">
+            </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label class="label">Repeat Password</mat-label>
+            <input matInput class="textbox"  formControlName="repeatpassword">
+            <!-- <mat-icon matSuffix (click)="hide2 = !hide2" class="eye">{{hide2?'visibility_off':'visibility'}} -->
+            <!-- </mat-icon> -->
+            <!-- <mat-error *ngIf="signupForm.get('repeatpassword').invalid">passwords didn't match</mat-error> -->
+        </mat-form-field>
+        <!-- <div class="response" *ngIf="error_flag">
+            <small>{{error_response}}</small>
+        </div> -->
+        <!--signing options  -->
+        <div class="signbuttons">
+            <button mat-raised-button class="mainbtn" type="submit" [disabled]="!signupForm.valid">Sign
+                up</button>
+                <!-- <p *ngIf="matter.length > 0">{{matter}}</p> -->
+            <button mat-stroked-button class="togglebtn" (click)="routelogin('login')">Login</button>
+        </div>
+    </form>
+</div>
+</div>
+
+</body>
