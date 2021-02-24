@@ -7,12 +7,13 @@ import { query } from '@angular/animations';
 })
 export class AuthService {
 public username='';
-private url='/auth/signup';
-private loginurl = '/auth/login';
-private verification = '/auth/verify';
-public userdertails = '/auth/details';
-public userlogout = '/auth/logout';
-public passwordchange='/auth/forgetpasword';
+public server_url="https://tulasi-akka-be.herokuapp.com";
+private url=this.server_url+'/auth/signup';
+private loginurl = this.server_url+'/auth/login';
+private verification = this.server_url+'/auth/verify';
+public userdertails = this.server_url+'/auth/details';
+public userlogout = this.server_url+'/auth/logout';
+public passwordchange=this.server_url+'/auth/forgetpasword';
 // public change='/auth/changinpassword';
   constructor(private http: HttpClient,) { 
     console.log('ddddddddddddd');

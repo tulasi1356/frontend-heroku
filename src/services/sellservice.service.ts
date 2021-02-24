@@ -4,7 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
   providedIn: 'root'
 })
 export class SellserviceService {
-  private url='/sell/sellformdetails';
+  public server_url="https://tulasi-akka-be.herokuapp.com";
+  private url=this.server_url+'/sell/sellformdetails';
   // private url1='/sell/finalcard';
   public carddetails;
   constructor(private http: HttpClient) { }
